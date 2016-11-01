@@ -1,7 +1,7 @@
 package com.MyGame;
 
 /**
- * Created by Srikanth on 11/1/2016.
+ * Created by Srikanth Adapa
  */
 public class AppConstants {
 }
