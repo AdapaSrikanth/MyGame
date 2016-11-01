@@ -1,5 +1,7 @@
 package com.MyGame;
-
+/**
+ * Created by Srikanth Adapa
+ */
 public class MyGameThread extends Thread {
 	
 	volatile boolean running = false;

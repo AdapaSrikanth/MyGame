@@ -10,7 +10,9 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-
+/**
+ * Created by Srikanth Adapa
+ */
 public class MyGameSurfaceView extends SurfaceView implements SurfaceHolder.Callback{
 	
 	SurfaceHolder surfaceHolder;

@@ -6,60 +6,64 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-public class MyAccelerometer implements SensorEventListener{
+/**
+ * Created by Srikanth Adapa
+ */
 
-	private SensorManager sensorManager;
-	private Sensor sensorAccelerometer;
-	private MyGameActivity parent;
-	
-	private float maximumRange;
-	
-	public MyAccelerometer(Context c) {
-		parent = (MyGameActivity)c;
-	}
-	
-	void registerListener(){
-		sensorManager = (SensorManager)parent.getSystemService(Context.SENSOR_SERVICE);
+public class MyAccelerometer implements SensorEventListener {
+
+    private SensorManager sensorManager;
+    private Sensor sensorAccelerometer;
+    private MyGameActivity parent;
+
+    private float maximumRange;
+
+    public MyAccelerometer(Context c) {
+        parent = (MyGameActivity) c;
+    }
+
+    void registerListener() {
+        sensorManager = (SensorManager) parent.getSystemService(Context.SENSOR_SERVICE);
         
 		/*
-		sensorAccelerometer = sensorManager.getDefaultSensor(
+        sensorAccelerometer = sensorManager.getDefaultSensor(
           Sensor.TYPE_ACCELEROMETER);
           */
-		sensorAccelerometer = sensorManager.getDefaultSensor(
-		          Sensor.TYPE_ORIENTATION);
-        
+        sensorAccelerometer = sensorManager.getDefaultSensor(
+                Sensor.TYPE_ORIENTATION);
+
         maximumRange = sensorAccelerometer.getMaximumRange();
-        
-		sensorManager.registerListener(this, 
-				sensorAccelerometer, 
-				SensorManager.SENSOR_DELAY_NORMAL);
-	}
-	
-	void unregisterListener(){
-		sensorManager.unregisterListener(this);
-	}
 
-	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		// TODO Auto-generated method stub
-		
-	}
+        sensorManager.registerListener(this,
+                sensorAccelerometer,
+                SensorManager.SENSOR_DELAY_NORMAL);
+    }
 
-	@Override
-	public void onSensorChanged(SensorEvent event) {
-		// TODO Auto-generated method stub
+    void unregisterListener() {
+        sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        // TODO Auto-generated method stub
 		/*
 		 * event.values[0]: azimuth, rotation around the Z axis.
 		 * event.values[1]: pitch, rotation around the X axis.
 		 * event.values[2]: roll, rotation around the Y axis.
 		 */
-		
-		float valueAzimuth = event.values[0];
-		float valuePitch = event.values[1];
-		
-		parent.updateAccelerometer(
-				valueAzimuth/maximumRange, -valuePitch/maximumRange);
 
-	}
+        float valueAzimuth = event.values[0];
+        float valuePitch = event.values[1];
+
+        parent.updateAccelerometer(
+                valueAzimuth / maximumRange, -valuePitch / maximumRange);
+
+    }
 
 }
