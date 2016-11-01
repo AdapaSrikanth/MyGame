@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 /**
- * Created by Srikanth Adapa
+ * Created by Srikanth Adapa on 1st Nov 2016.
  */
 public class MyGameSurfaceView extends SurfaceView implements SurfaceHolder.Callback{
 	
